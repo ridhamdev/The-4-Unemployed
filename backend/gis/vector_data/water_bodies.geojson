@@ -1,0 +1,138 @@
+{
+  "type": "FeatureCollection",
+  "name": "water_bodies",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "WB-001",
+        "name": "Mini River (Mini Khadi)",
+        "water_type": "River / Natural Stream",
+        "description": "Primary drainage river flowing along eastern flank of Nandesari Industrial Estate into Mahi River",
+        "buffer_sensitivity": "CRITICAL"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.1020, 22.4280],
+            [73.1065, 22.4210],
+            [73.1090, 22.4120],
+            [73.1075, 22.4010],
+            [73.1035, 22.3920],
+            [73.0990, 22.3930],
+            [73.1030, 22.4020],
+            [73.1045, 22.4130],
+            [73.1025, 22.4215],
+            [73.0980, 22.4275],
+            [73.1020, 22.4280]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "WB-002",
+        "name": "Mahi River Basin",
+        "water_type": "Major Perennial River",
+        "description": "Major interstate river providing ecological habitat and regional irrigation",
+        "buffer_sensitivity": "HIGH"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.0420, 22.4500],
+            [73.0600, 22.4350],
+            [73.0650, 22.4150],
+            [73.0550, 22.3850],
+            [73.0450, 22.3700],
+            [73.0320, 22.3720],
+            [73.0420, 22.3950],
+            [73.0510, 22.4180],
+            [73.0450, 22.4380],
+            [73.0300, 22.4520],
+            [73.0420, 22.4500]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "WB-003",
+        "name": "Narmada Main Canal Sub-Branch",
+        "water_type": "Engineered Concrete Canal",
+        "description": "Engineered municipal and agricultural supply canal passing east of industrial corridor",
+        "buffer_sensitivity": "HIGH"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.1450, 22.4450],
+            [73.1520, 22.4200],
+            [73.1580, 22.3900],
+            [73.1620, 22.3650],
+            [73.1590, 22.3650],
+            [73.1550, 22.3910],
+            [73.1490, 22.4210],
+            [73.1420, 22.4460],
+            [73.1450, 22.4450]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "WB-004",
+        "name": "Tapi River Channel (Surat Textile Hub)",
+        "water_type": "Major Tidal River",
+        "description": "Primary waterway traversing Surat urban and industrial textile dyeing cluster",
+        "buffer_sensitivity": "CRITICAL"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [72.7950, 21.2150],
+            [72.8250, 21.2100],
+            [72.8550, 21.2050],
+            [72.8750, 21.2000],
+            [72.8720, 21.1940],
+            [72.8500, 21.1980],
+            [72.8200, 21.2030],
+            [72.7920, 21.2080],
+            [72.7950, 21.2150]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "WB-005",
+        "name": "Mahi Irrigation Canal (Anand Food Agro Hub)",
+        "water_type": "Agricultural Canal",
+        "description": "Irrigation canal network supporting dairy and agricultural agro-industrial belt",
+        "buffer_sensitivity": "MODERATE"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [72.9320, 22.5700],
+            [72.9480, 22.5450],
+            [72.9620, 22.5200],
+            [72.9580, 22.5190],
+            [72.9440, 22.5440],
+            [72.9280, 22.5690],
+            [72.9320, 22.5700]
+          ]
+        ]
+      }
+    }
+  ]
+}

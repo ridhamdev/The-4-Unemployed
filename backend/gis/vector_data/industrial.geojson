@@ -1,0 +1,116 @@
+{
+  "type": "FeatureCollection",
+  "name": "industrial_areas",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "IND-001",
+        "name": "Nandesari GIDC Chemical Estate",
+        "category": "Chemical & Specialty Intermediates",
+        "estimated_area_km2": 3.80,
+        "hazard_classification": "RED_CATEGORY"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.0850, 22.4180],
+            [73.1040, 22.4190],
+            [73.1050, 22.4040],
+            [73.0870, 22.4030],
+            [73.0850, 22.4180]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "IND-002",
+        "name": "Gujarat Refinery (IOCL) & Petrochemical Complex",
+        "category": "Refining & Bulk Petrochemicals",
+        "estimated_area_km2": 7.50,
+        "hazard_classification": "RED_CATEGORY"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.1100, 22.3900],
+            [73.1350, 22.3920],
+            [73.1380, 22.3680],
+            [73.1120, 22.3660],
+            [73.1100, 22.3900]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "IND-003",
+        "name": "GSFC Fertilizer Industrial Estate",
+        "category": "Agrochemicals & Industrial Fertilizers",
+        "estimated_area_km2": 4.20,
+        "hazard_classification": "RED_CATEGORY"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.1450, 22.3750],
+            [73.1700, 22.3760],
+            [73.1720, 22.3550],
+            [73.1480, 22.3530],
+            [73.1450, 22.3750]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "IND-004",
+        "name": "Surat Pandesara & Sachin GIDC Textile Estate",
+        "category": "Textile Dyeing, Printing & Processing",
+        "estimated_area_km2": 6.80,
+        "hazard_classification": "RED_CATEGORY"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [72.8100, 21.1550],
+            [72.8450, 21.1580],
+            [72.8500, 21.1300],
+            [72.8150, 21.1280],
+            [72.8100, 21.1550]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "IND-005",
+        "name": "Anand GIDC Food & Dairy Agro Park",
+        "category": "Agro-Processing & Dairy Manufacturing",
+        "estimated_area_km2": 2.90,
+        "hazard_classification": "ORANGE_CATEGORY"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [72.9600, 22.5400],
+            [72.9850, 22.5420],
+            [72.9880, 22.5200],
+            [72.9620, 22.5180],
+            [72.9600, 22.5400]
+          ]
+        ]
+      }
+    }
+  ]
+}

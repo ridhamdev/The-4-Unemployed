@@ -1,0 +1,160 @@
+{
+  "target": "no2",
+  "dataset_split": {
+    "train": [
+      "2023-01-01",
+      "2024-05-25"
+    ],
+    "val": [
+      "2024-05-26",
+      "2024-09-12"
+    ],
+    "test": [
+      "2024-09-13",
+      "2024-12-31"
+    ]
+  },
+  "features_count": 30,
+  "comparison": [
+    {
+      "model": "Linear Regression",
+      "family": "Baseline / Parametric",
+      "train_r2": 0.8167,
+      "val_r2": 0.1791,
+      "test_r2": 0.4551,
+      "test_mae": 4.5198,
+      "test_rmse": 5.84,
+      "parameters": 31
+    },
+    {
+      "model": "Random Forest Regressor",
+      "family": "Tree Ensemble / Bagging",
+      "train_r2": 0.9594,
+      "val_r2": 0.563,
+      "test_r2": 0.5331,
+      "test_mae": 4.2434,
+      "test_rmse": 5.4056,
+      "parameters": "150 Trees (Depth 8)"
+    },
+    {
+      "model": "XGBoost",
+      "family": "Tree Ensemble / Boosting",
+      "train_r2": 0.9933,
+      "val_r2": 0.5241,
+      "test_r2": 0.5457,
+      "test_mae": 4.1023,
+      "test_rmse": 5.3325,
+      "parameters": "150 Boosters (lr=0.05)"
+    },
+    {
+      "model": "PyTorch 3-Layer MLP",
+      "family": "Deep Learning / Dense Feedforward",
+      "train_r2": 0.9124,
+      "val_r2": 0.2298,
+      "test_r2": 0.2195,
+      "test_mae": 5.549,
+      "test_rmse": 6.9891,
+      "parameters": 14337
+    },
+    {
+      "model": "Sequential LSTM (7-Day Memory)",
+      "family": "Recurrent Deep Learning (LSTM)",
+      "train_r2": 0.9929,
+      "val_r2": -1.2825,
+      "test_r2": -0.1901,
+      "test_mae": 6.9021,
+      "test_rmse": 8.6307,
+      "parameters": 59969
+    },
+    {
+      "model": "Sequential GRU (7-Day Memory)",
+      "family": "Recurrent Deep Learning (GRU)",
+      "train_r2": 0.9885,
+      "val_r2": -0.1419,
+      "test_r2": -0.3321,
+      "test_mae": 7.4369,
+      "test_rmse": 9.1311,
+      "parameters": 45505
+    }
+  ],
+  "ablation": [
+    {
+      "ablation_stage": "Model A: Factory Operational Only",
+      "features_count": 6,
+      "test_r2": -0.1414,
+      "test_rmse": 8.4523,
+      "test_mae": 7.1076
+    },
+    {
+      "ablation_stage": "Model B: Factory + Weather",
+      "features_count": 12,
+      "test_r2": 0.0202,
+      "test_rmse": 7.8311,
+      "test_mae": 6.0022
+    },
+    {
+      "ablation_stage": "Model C: Factory + Weather + Ground Lags",
+      "features_count": 17,
+      "test_r2": 0.552,
+      "test_rmse": 5.2952,
+      "test_mae": 4.1694
+    },
+    {
+      "ablation_stage": "Model D: Full Multimodal (+ Satellite S2 & S5P)",
+      "features_count": 20,
+      "test_r2": 0.5458,
+      "test_rmse": 5.3316,
+      "test_mae": 4.199
+    }
+  ],
+  "shap_top_features": [
+    {
+      "feature": "no2_lag_1d",
+      "shap_importance": 5.7622
+    },
+    {
+      "feature": "wind_speed_ms",
+      "shap_importance": 1.0405
+    },
+    {
+      "feature": "no2_7d_mean",
+      "shap_importance": 0.5408
+    },
+    {
+      "feature": "no2_lag_7d",
+      "shap_importance": 0.3007
+    },
+    {
+      "feature": "wind_v",
+      "shap_importance": 0.2089
+    },
+    {
+      "feature": "no2_30d_mean",
+      "shap_importance": 0.2023
+    },
+    {
+      "feature": "wind_u",
+      "shap_importance": 0.1817
+    },
+    {
+      "feature": "relative_humidity_pct",
+      "shap_importance": 0.1596
+    },
+    {
+      "feature": "surface_pressure_hpa",
+      "shap_importance": 0.152
+    },
+    {
+      "feature": "so2_lag_1d",
+      "shap_importance": 0.1506
+    }
+  ],
+  "anomalies_count": 49,
+  "verdict": {
+    "selected_model": "XGBoost",
+    "best_test_rmse": 5.3325,
+    "best_test_r2": 0.5457,
+    "deep_learning_justified": false,
+    "decision_rationale": "Model evaluation demonstrated that XGBoost achieved lowest Test RMSE of 5.3325 and Test R\u00b2 of 0.5457. Tree ensemble methods (Random Forest / XGBoost) remain superior to deep neural networks on this dataset size, providing higher generalization and auditability without overfitting risk."
+  }
+}

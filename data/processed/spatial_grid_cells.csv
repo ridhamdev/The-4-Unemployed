@@ -1,0 +1,76 @@
+cell_id,latitude,longitude,grid_x,grid_y,dist_from_factory_km,dist_from_residential_km,dist_from_water_km,dist_from_road_km,land_use_type,cell_ndvi,cell_ndbi,cell_ndwi
+CELL_001,22.3764,73.075,-4,-2,4.48,6.53,2.96,5.41,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_002,22.3764,73.0847,-4,-1,4.14,6.1,2.18,4.6,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_003,22.3764,73.0944,-4,0,4.01,5.81,1.65,3.88,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_004,22.3764,73.1041,-4,1,4.14,5.69,1.64,3.3,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_005,22.3764,73.1138,-4,2,4.48,5.73,2.16,2.96,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_006,22.3854,73.0556,-3,-4,5.0,7.01,4.54,6.83,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_007,22.3854,73.0653,-3,-3,4.25,6.31,3.55,5.88,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_008,22.3854,73.075,-3,-2,3.61,5.69,2.57,4.94,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_009,22.3854,73.0847,-3,-1,3.17,5.19,1.61,4.04,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_010,22.3854,73.0944,-3,0,3.01,4.84,0.77,3.2,Riparian Buffer / Waterway,0.35,0.05,0.15
+CELL_011,22.3854,73.1041,-3,1,3.17,4.69,0.75,2.47,Riparian Buffer / Waterway,0.35,0.05,0.15
+CELL_012,22.3854,73.1138,-3,2,3.61,4.74,1.59,1.99,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_013,22.3854,73.1235,-3,3,4.25,5.0,2.54,1.95,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_014,22.3854,73.1332,-3,4,5.0,5.43,3.52,2.37,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_015,22.3944,73.0556,-2,-4,4.47,6.39,4.52,6.62,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_016,22.3944,73.0653,-2,-3,3.61,5.6,3.53,5.63,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_017,22.3944,73.075,-2,-2,2.83,4.9,2.55,4.65,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_018,22.3944,73.0847,-2,-1,2.25,4.3,1.57,3.68,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_019,22.3944,73.0944,-2,0,2.01,3.88,0.67,2.72,Riparian Buffer / Waterway,0.35,0.05,0.15
+CELL_020,22.3944,73.1041,-2,1,2.25,3.69,0.65,1.81,Riparian Buffer / Waterway,0.35,0.05,0.15
+CELL_021,22.3944,73.1138,-2,2,2.83,3.76,1.54,1.07,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_022,22.3944,73.1235,-2,3,3.61,4.08,2.52,0.99,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_023,22.3944,73.1332,-2,4,4.47,4.6,3.5,1.68,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_024,22.4035,73.0556,-1,-4,4.11,5.86,4.73,6.56,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_025,22.4035,73.0653,-1,-3,3.15,5.0,3.79,5.56,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_026,22.4035,73.075,-1,-2,2.23,4.19,2.9,4.57,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_027,22.4035,73.0847,-1,-1,1.41,3.48,2.09,3.57,Heavy Industrial Core,0.12,0.32,-0.18
+CELL_028,22.4035,73.0944,-1,0,1.0,2.94,1.53,2.57,Heavy Industrial Core,0.12,0.32,-0.18
+CELL_029,22.4035,73.1041,-1,1,1.41,2.68,1.52,1.58,Heavy Industrial Core,0.12,0.32,-0.18
+CELL_030,22.4035,73.1138,-1,2,2.23,2.77,2.07,0.59,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_031,22.4035,73.1235,-1,3,3.15,3.2,2.87,0.44,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_032,22.4035,73.1332,-1,4,4.11,3.84,3.76,1.42,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_033,22.4125,73.0459,0,-5,4.99,6.44,6.02,7.64,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_034,22.4125,73.0556,0,-4,3.99,5.48,5.12,6.65,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_035,22.4125,73.0653,0,-3,2.99,4.54,4.27,5.67,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_036,22.4125,73.075,0,-2,1.99,3.63,3.5,4.7,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_037,22.4125,73.0847,0,-1,1.0,2.79,2.88,3.74,Heavy Industrial Core,0.12,0.32,-0.18
+CELL_038,22.4125,73.0944,0,0,0.0,2.07,2.5,2.8,Heavy Industrial Core,0.12,0.32,-0.18
+CELL_039,22.4125,73.1041,0,1,1.0,1.68,2.49,1.93,Heavy Industrial Core,0.12,0.32,-0.18
+CELL_040,22.4125,73.1138,0,2,1.99,1.83,2.86,1.25,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_041,22.4125,73.1235,0,3,2.99,2.42,3.48,1.19,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_042,22.4125,73.1332,0,4,3.99,3.22,4.25,1.8,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_043,22.4125,73.1429,0,5,4.99,4.11,5.1,2.66,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_044,22.4215,73.0556,1,-4,4.11,5.26,5.67,6.89,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_045,22.4215,73.0653,1,-3,3.15,4.28,4.92,5.95,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_046,22.4215,73.075,1,-2,2.23,3.3,4.26,5.03,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_047,22.4215,73.0847,1,-1,1.41,2.33,3.76,4.15,Heavy Industrial Core,0.12,0.32,-0.18
+CELL_048,22.4215,73.0944,1,0,1.0,1.4,3.49,3.33,Heavy Industrial Core,0.12,0.32,-0.18
+CELL_049,22.4215,73.1041,1,1,1.41,0.71,3.48,2.63,Heavy Industrial Core,0.12,0.32,-0.18
+CELL_050,22.4215,73.1138,1,2,2.23,1.01,3.75,2.19,Residential / Commercial Settlement,0.22,0.24,-0.12
+CELL_051,22.4215,73.1235,1,3,3.15,1.88,4.25,2.15,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_052,22.4215,73.1332,1,4,4.11,2.83,4.89,2.54,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_053,22.4306,73.0556,2,-4,4.47,5.23,6.34,7.26,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_054,22.4306,73.0653,2,-3,3.61,4.24,5.67,6.38,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_055,22.4306,73.075,2,-2,2.83,3.25,5.12,5.53,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_056,22.4306,73.0847,2,-1,2.25,2.26,4.71,4.74,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_057,22.4306,73.0944,2,0,2.01,1.28,4.49,4.05,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_058,22.4306,73.1041,2,1,2.25,0.42,4.49,3.5,Residential / Commercial Settlement,0.22,0.24,-0.12
+CELL_059,22.4306,73.1138,2,2,2.83,0.84,4.7,3.18,Residential / Commercial Settlement,0.22,0.24,-0.12
+CELL_060,22.4306,73.1235,2,3,3.61,1.79,5.1,3.15,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_061,22.4306,73.1332,2,4,4.47,2.78,5.65,3.43,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_062,22.4396,73.0556,3,-4,5.0,5.39,7.08,7.75,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_063,22.4396,73.0653,3,-3,4.25,4.43,6.49,6.92,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_064,22.4396,73.075,3,-2,3.61,3.5,6.01,6.15,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_065,22.4396,73.0847,3,-1,3.17,2.6,5.66,5.45,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_066,22.4396,73.0944,3,0,3.01,1.83,5.48,4.86,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_067,22.4396,73.1041,3,1,3.17,1.37,5.48,4.41,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_068,22.4396,73.1138,3,2,3.61,1.55,5.66,4.17,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_069,22.4396,73.1235,3,3,4.25,2.21,6.0,4.15,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_070,22.4396,73.1332,3,4,5.0,3.07,6.47,4.36,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_071,22.4486,73.075,4,-2,4.48,3.99,6.93,6.86,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_072,22.4486,73.0847,4,-1,4.14,3.24,6.63,6.24,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_073,22.4486,73.0944,4,0,4.01,2.65,6.48,5.73,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_074,22.4486,73.1041,4,1,4.14,2.36,6.48,5.36,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1
+CELL_075,22.4486,73.1138,4,2,4.48,2.47,6.63,5.16,Mixed Semi-Urban / Agriculture,0.28,0.12,-0.1

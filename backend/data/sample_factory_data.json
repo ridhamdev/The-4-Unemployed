@@ -1,0 +1,106 @@
+{
+  "factory_info": {
+    "name": "Apex PetroChem & Polymers Ltd",
+    "industry_type": "Chemical & Specialty Polymers",
+    "location_name": "Nandesari Industrial Estate, Vadodara, Gujarat",
+    "latitude": 22.4125,
+    "longitude": 73.0944,
+    "analysis_radius_km": 5.0,
+    "num_employees": 240,
+    "operating_hours_per_day": 24,
+    "operating_days_per_month": 26
+  },
+  "energy": {
+    "electricity_kwh_month": 185000,
+    "electricity_source": "Grid + Captive Solar",
+    "renewable_percentage": 15.0,
+    "diesel_liters_month": 3200,
+    "natural_gas_m3_month": 14000,
+    "other_fuel_name": "None",
+    "other_fuel_consumption": 0
+  },
+  "production": {
+    "main_product": "Polymer Stabilizers & Resins",
+    "production_quantity_month": 1200,
+    "production_unit": "Tonnes"
+  },
+  "materials": {
+    "raw_materials_used": "Phthalic Anhydride, Methanol, Catalyst Acids",
+    "approximate_quantity_month": 1350,
+    "material_category": "Petrochemical Feedstocks"
+  },
+  "waste": {
+    "waste_generated_kg_month": 4800,
+    "waste_type": "Chemical Sludge & Distillation Bottoms",
+    "treatment_method": "Effluent Treatment Plant (ETP) & Hazardous Landfill",
+    "recycled_percentage": 25.0,
+    "waste_sent_to_landfill_kg": 3600
+  },
+  "processes": [
+    {
+      "process_name": "Main Utility Steam Boiler",
+      "energy_consumption_kwh": 12000,
+      "fuel_used": "natural_gas",
+      "fuel_consumption": 9200,
+      "fuel_unit": "m3",
+      "material_consumed": "Demineralized Water & Preheated Feed",
+      "waste_generated_kg": 150,
+      "operating_hours_month": 624,
+      "temperature_c": 220,
+      "equipment_type": "Water-Tube Industrial Boiler",
+      "pollution_control": "Economizer (No Low-NOx Burner)"
+    },
+    {
+      "process_name": "High-Temp Thermic Fluid Heater",
+      "energy_consumption_kwh": 8500,
+      "fuel_used": "natural_gas",
+      "fuel_consumption": 4800,
+      "fuel_unit": "m3",
+      "material_consumed": "Synthetic Heat Transfer Oil",
+      "waste_generated_kg": 80,
+      "operating_hours_month": 520,
+      "temperature_c": 290,
+      "equipment_type": "Coil-type Thermic Heater",
+      "pollution_control": "None"
+    },
+    {
+      "process_name": "Backup Diesel Generation (DG Set)",
+      "energy_consumption_kwh": 0,
+      "fuel_used": "diesel",
+      "fuel_consumption": 3200,
+      "fuel_unit": "L",
+      "material_consumed": "Lube Oil & High Speed Diesel",
+      "waste_generated_kg": 320,
+      "operating_hours_month": 120,
+      "temperature_c": 420,
+      "equipment_type": "750 kVA Diesel Generator",
+      "pollution_control": "Standard Acoustic Enclosure Only"
+    },
+    {
+      "process_name": "Vacuum Distillation Column",
+      "energy_consumption_kwh": 55000,
+      "fuel_used": "grid_electricity",
+      "fuel_consumption": 55000,
+      "fuel_unit": "kWh",
+      "material_consumed": "Crude Reaction Mixture",
+      "waste_generated_kg": 1450,
+      "operating_hours_month": 624,
+      "temperature_c": 115,
+      "equipment_type": "Packed Fractionation Column",
+      "pollution_control": "Chilled Vent Condenser"
+    },
+    {
+      "process_name": "Effluent Sludge Dewatering & Drying",
+      "energy_consumption_kwh": 22000,
+      "fuel_used": "grid_electricity",
+      "fuel_consumption": 22000,
+      "fuel_unit": "kWh",
+      "material_consumed": "Biological Sludge & Flocculants",
+      "waste_generated_kg": 2800,
+      "operating_hours_month": 480,
+      "temperature_c": 85,
+      "equipment_type": "Filter Press + Rotary Dryer",
+      "pollution_control": "Wet Packed Tower Scrubber"
+    }
+  ]
+}

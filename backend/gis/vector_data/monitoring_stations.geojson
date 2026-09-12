@@ -1,0 +1,62 @@
+{
+  "type": "FeatureCollection",
+  "name": "monitoring_stations",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "STN-001",
+        "station_name": "CPCB CAAQMS Nandesari GIDC",
+        "network": "CPCB / GPCB Continuous Ambient Air Quality Monitoring",
+        "parameters_monitored": ["PM2.5", "PM10", "SO2", "NO2", "CO", "Ozone"],
+        "station_type": "Industrial Airshed Monitor"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [73.0955, 22.4132]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "STN-002",
+        "station_name": "CPCB CAAQMS Vadodara GSFC Complex",
+        "network": "CPCB / GPCB Real-Time Network",
+        "parameters_monitored": ["PM2.5", "SO2", "NO2", "NH3", "Benzene"],
+        "station_type": "Industrial-Urban Buffer Monitor"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [73.1552, 22.3681]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "STN-003",
+        "station_name": "CPCB CAAQMS Pandesara GIDC Surat",
+        "network": "CPCB / GPCB Coastal Airshed Network",
+        "parameters_monitored": ["PM2.5", "PM10", "SO2", "NO2", "CO"],
+        "station_type": "Textile Cluster Continuous Monitor"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [72.8350, 21.1465]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "STN-004",
+        "station_name": "GPCB CAAQMS Anand Agricultural Complex",
+        "network": "GPCB Rural Air Quality Network",
+        "parameters_monitored": ["PM2.5", "PM10", "NO2", "O3"],
+        "station_type": "Agro-Rural Airshed Monitor"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [72.9650, 22.5420]
+      }
+    }
+  ]
+}

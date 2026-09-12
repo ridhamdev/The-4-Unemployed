@@ -1,0 +1,138 @@
+{
+  "type": "FeatureCollection",
+  "name": "residential_areas",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RES-001",
+        "name": "Nandesari Township & Worker Colony",
+        "category": "Township / Residential Settlement",
+        "estimated_area_km2": 1.45,
+        "sensitivity": "HIGH"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.0880, 22.4230],
+            [73.1020, 22.4250],
+            [73.1050, 22.4180],
+            [73.0910, 22.4160],
+            [73.0880, 22.4230]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RES-002",
+        "name": "Ranoli Urban Agglomeration",
+        "category": "Suburban Settlement",
+        "estimated_area_km2": 2.10,
+        "sensitivity": "HIGH"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.0820, 22.3920],
+            [73.0980, 22.3940],
+            [73.1010, 22.3820],
+            [73.0840, 22.3800],
+            [73.0820, 22.3920]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RES-003",
+        "name": "Bajva Municipal Ward",
+        "category": "Urban Residential Ward",
+        "estimated_area_km2": 2.85,
+        "sensitivity": "HIGH"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.1250, 22.3780],
+            [73.1420, 22.3800],
+            [73.1460, 22.3650],
+            [73.1280, 22.3630],
+            [73.1250, 22.3780]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RES-004",
+        "name": "Chhani Urban Zone (North Vadodara)",
+        "category": "Dense Urban Residential",
+        "estimated_area_km2": 4.60,
+        "sensitivity": "VERY_HIGH"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.1550, 22.3600],
+            [73.1800, 22.3620],
+            [73.1850, 22.3420],
+            [73.1580, 22.3400],
+            [73.1550, 22.3600]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RES-005",
+        "name": "Katargam & Varachha Wards (Surat)",
+        "category": "Dense Industrial-Residential Mixed",
+        "estimated_area_km2": 5.20,
+        "sensitivity": "VERY_HIGH"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [72.8250, 21.2300],
+            [72.8580, 21.2320],
+            [72.8620, 21.2150],
+            [72.8280, 21.2120],
+            [72.8250, 21.2300]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RES-006",
+        "name": "Anand Mogar & Gamdi Enclave",
+        "category": "Semi-Urban Residential Hub",
+        "estimated_area_km2": 3.10,
+        "sensitivity": "MODERATE"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [72.9450, 22.5550],
+            [72.9750, 22.5580],
+            [72.9780, 22.5350],
+            [72.9480, 22.5320],
+            [72.9450, 22.5550]
+          ]
+        ]
+      }
+    }
+  ]
+}

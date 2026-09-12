@@ -1,0 +1,60 @@
+{
+  "type": "FeatureCollection",
+  "name": "roads",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ROAD-001",
+        "name": "National Highway 48 (Golden Quadrilateral Corridor)",
+        "road_type": "Primary Arterial National Highway",
+        "lanes": 6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [73.1250, 22.4550],
+          [73.1320, 22.4200],
+          [73.1400, 22.3850],
+          [73.1480, 22.3500]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ROAD-002",
+        "name": "Nandesari Industrial Spine Corridor",
+        "road_type": "Heavy Freight Industrial Road",
+        "lanes": 4
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [73.0840, 22.4150],
+          [73.0940, 22.4125],
+          [73.1050, 22.4100],
+          [73.1220, 22.4080]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ROAD-003",
+        "name": "Surat-Kadodara Industrial Highway",
+        "road_type": "State Highway Freight Corridor",
+        "lanes": 6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [72.8100, 21.1800],
+          [72.8400, 21.1750],
+          [72.8750, 21.1700],
+          [72.9050, 21.1650]
+        ]
+      }
+    }
+  ]
+}
