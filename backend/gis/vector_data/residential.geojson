@@ -15,11 +15,26 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [73.0880, 22.4230],
-            [73.1020, 22.4250],
-            [73.1050, 22.4180],
-            [73.0910, 22.4160],
-            [73.0880, 22.4230]
+            [
+              73.088,
+              22.423
+            ],
+            [
+              73.102,
+              22.425
+            ],
+            [
+              73.105,
+              22.418
+            ],
+            [
+              73.091,
+              22.416
+            ],
+            [
+              73.088,
+              22.423
+            ]
           ]
         ]
       }
@@ -30,18 +45,33 @@
         "id": "RES-002",
         "name": "Ranoli Urban Agglomeration",
         "category": "Suburban Settlement",
-        "estimated_area_km2": 2.10,
+        "estimated_area_km2": 2.1,
         "sensitivity": "HIGH"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [73.0820, 22.3920],
-            [73.0980, 22.3940],
-            [73.1010, 22.3820],
-            [73.0840, 22.3800],
-            [73.0820, 22.3920]
+            [
+              73.082,
+              22.392
+            ],
+            [
+              73.098,
+              22.394
+            ],
+            [
+              73.101,
+              22.382
+            ],
+            [
+              73.084,
+              22.38
+            ],
+            [
+              73.082,
+              22.392
+            ]
           ]
         ]
       }
@@ -59,11 +89,26 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [73.1250, 22.3780],
-            [73.1420, 22.3800],
-            [73.1460, 22.3650],
-            [73.1280, 22.3630],
-            [73.1250, 22.3780]
+            [
+              73.125,
+              22.378
+            ],
+            [
+              73.142,
+              22.38
+            ],
+            [
+              73.146,
+              22.365
+            ],
+            [
+              73.128,
+              22.363
+            ],
+            [
+              73.125,
+              22.378
+            ]
           ]
         ]
       }
@@ -74,18 +119,33 @@
         "id": "RES-004",
         "name": "Chhani Urban Zone (North Vadodara)",
         "category": "Dense Urban Residential",
-        "estimated_area_km2": 4.60,
+        "estimated_area_km2": 4.6,
         "sensitivity": "VERY_HIGH"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [73.1550, 22.3600],
-            [73.1800, 22.3620],
-            [73.1850, 22.3420],
-            [73.1580, 22.3400],
-            [73.1550, 22.3600]
+            [
+              73.155,
+              22.36
+            ],
+            [
+              73.18,
+              22.362
+            ],
+            [
+              73.185,
+              22.342
+            ],
+            [
+              73.158,
+              22.34
+            ],
+            [
+              73.155,
+              22.36
+            ]
           ]
         ]
       }
@@ -96,18 +156,33 @@
         "id": "RES-005",
         "name": "Katargam & Varachha Wards (Surat)",
         "category": "Dense Industrial-Residential Mixed",
-        "estimated_area_km2": 5.20,
+        "estimated_area_km2": 5.2,
         "sensitivity": "VERY_HIGH"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [72.8250, 21.2300],
-            [72.8580, 21.2320],
-            [72.8620, 21.2150],
-            [72.8280, 21.2120],
-            [72.8250, 21.2300]
+            [
+              72.825,
+              21.23
+            ],
+            [
+              72.858,
+              21.232
+            ],
+            [
+              72.862,
+              21.215
+            ],
+            [
+              72.828,
+              21.212
+            ],
+            [
+              72.825,
+              21.23
+            ]
           ]
         ]
       }
@@ -118,18 +193,144 @@
         "id": "RES-006",
         "name": "Anand Mogar & Gamdi Enclave",
         "category": "Semi-Urban Residential Hub",
-        "estimated_area_km2": 3.10,
+        "estimated_area_km2": 3.1,
         "sensitivity": "MODERATE"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [72.9450, 22.5550],
-            [72.9750, 22.5580],
-            [72.9780, 22.5350],
-            [72.9480, 22.5320],
-            [72.9450, 22.5550]
+            [
+              72.945,
+              22.555
+            ],
+            [
+              72.975,
+              22.558
+            ],
+            [
+              72.978,
+              22.535
+            ],
+            [
+              72.948,
+              22.532
+            ],
+            [
+              72.945,
+              22.555
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RES-007",
+        "name": "Ankleshwar Town & GIDC Colony",
+        "area_type": "Township & Industrial Housing",
+        "population_est": 140000,
+        "vulnerability": "HIGH"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              72.975,
+              21.64
+            ],
+            [
+              72.995,
+              21.64
+            ],
+            [
+              73.0,
+              21.62
+            ],
+            [
+              72.98,
+              21.615
+            ],
+            [
+              72.975,
+              21.64
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RES-008",
+        "name": "Vapi Town & Chala Wards",
+        "area_type": "Municipal Residential Zone",
+        "population_est": 160000,
+        "vulnerability": "HIGH"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              72.875,
+              20.38
+            ],
+            [
+              72.9,
+              20.38
+            ],
+            [
+              72.905,
+              20.355
+            ],
+            [
+              72.88,
+              20.355
+            ],
+            [
+              72.875,
+              20.38
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RES-009",
+        "name": "Nerul & Belapur Residential Nodes (Navi Mumbai)",
+        "area_type": "Planned Metropolitan Residential Nodes",
+        "population_est": 450000,
+        "vulnerability": "HIGH"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.01,
+              19.055
+            ],
+            [
+              73.045,
+              19.055
+            ],
+            [
+              73.05,
+              19.02
+            ],
+            [
+              73.015,
+              20.02
+            ],
+            [
+              73.01,
+              19.055
+            ]
           ]
         ]
       }

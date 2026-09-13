@@ -6,6 +6,7 @@ import LandingPage from './components/factory/LandingPage';
 import OnboardingWizard from './components/factory/OnboardingWizard';
 import IndustrialGisMap from './components/factory/IndustrialGisMap';
 import ExecutiveDashboard from './components/factory/ExecutiveDashboard';
+import DemoScenarioModal from './components/factory/DemoScenarioModal';
 
 // Internal ML Research Workbench Components (Part A)
 import DatasetsAndQualityView from './components/workbench/DatasetsAndQualityView';
@@ -119,6 +120,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('home'); // factory: 'home', 'onboarding', 'map', 'dashboard' | wb: 'wb_datasets', 'wb_benchmark', 'wb_plume', 'wb_gis', 'wb_registry'
   const [factoryData, setFactoryData] = useState(DEFAULT_FACTORY);
   const [analysisResult, setAnalysisResult] = useState(null);
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState('');
 
@@ -145,18 +147,28 @@ export default function App() {
     setLoading(true);
     try {
       const scenario = await fetchScenario(scenarioKey);
-      setFactoryData(scenario);
-      showToast(`Loaded scenario: ${scenario.name}`);
-      setActiveTab('onboarding');
+      const demoData = { ...scenario, is_demo: true };
+      setFactoryData(demoData);
+      showToast(`Loaded demo scenario: ${scenario.name}`);
 
-      // Auto-analyze selected scenario
-      const result = await runAnalysis(scenario);
+      // Auto-analyze selected demo scenario
+      const result = await runAnalysis(demoData);
       setAnalysisResult(result);
+      setActiveTab('dashboard');
     } catch (err) {
       showToast(`Failed to load scenario: ${err.message}`);
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleAnalysisCompleted = (result, createdFactory) => {
+    setAnalysisResult(result);
+    if (createdFactory) {
+      setFactoryData(createdFactory);
+    }
+    setActiveTab('dashboard');
+    showToast(`Analysis completed for ${createdFactory?.name || 'factory'}! ID: ${result?.analysis_id || createdFactory?.factory_id}`);
   };
 
   const handleRunAnalysis = async () => {
@@ -233,7 +245,7 @@ export default function App() {
             {activeTab === 'home' && (
               <LandingPage 
                 onStartAnalysis={() => setActiveTab('onboarding')}
-                onLoadScenario={handleLoadScenario}
+                onOpenDemoModal={() => setIsDemoModalOpen(true)}
               />
             )}
 
@@ -241,8 +253,8 @@ export default function App() {
               <OnboardingWizard 
                 factoryData={factoryData}
                 setFactoryData={setFactoryData}
-                onLoadScenario={handleLoadScenario}
-                onRunAnalysis={handleRunAnalysis}
+                onAnalysisCompleted={handleAnalysisCompleted}
+                onOpenDemoModal={() => setIsDemoModalOpen(true)}
                 loading={loading}
               />
             )}
@@ -292,6 +304,14 @@ export default function App() {
         )}
 
       </main>
+
+      {/* Demo Scenario Exploration Modal */}
+      <DemoScenarioModal 
+        isOpen={isDemoModalOpen}
+        onClose={() => setIsDemoModalOpen(false)}
+        onSelectDemoScenario={handleLoadScenario}
+        loading={loading}
+      />
     </div>
   );
 }

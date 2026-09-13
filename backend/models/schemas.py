@@ -54,8 +54,11 @@ class LocationInput(BaseModel):
     analysis_radius_km: Optional[float] = 5.0
 
 class FactoryCreate(BaseModel):
+    factory_id: Optional[str] = None
     name: str
     industry_type: str
+    state: Optional[str] = "Gujarat"
+    city: Optional[str] = "Vadodara"
     location_name: str
     latitude: float
     longitude: float
@@ -63,10 +66,28 @@ class FactoryCreate(BaseModel):
     num_employees: int = 100
     operating_hours_per_day: float = 24.0
     operating_days_per_month: float = 26.0
+    is_demo: Optional[bool] = False
     energy: Optional[EnergyInput] = None
     production: Optional[ProductionInput] = None
     waste: Optional[WasteInput] = None
     processes: List[ProcessCreate] = []
+
+class FactoryResponse(BaseModel):
+    id: int
+    factory_id: str
+    name: str
+    industry_type: str
+    state: str
+    city: str
+    location_name: str
+    latitude: float
+    longitude: float
+    analysis_radius_km: float
+    is_demo: bool
+    created_at: str
+
+    class Config:
+        from_attributes = True
 
 class EnvironmentalDataSchema(BaseModel):
     pm25: float

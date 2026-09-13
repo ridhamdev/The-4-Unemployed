@@ -8,18 +8,33 @@
         "id": "IND-001",
         "name": "Nandesari GIDC Chemical Estate",
         "category": "Chemical & Specialty Intermediates",
-        "estimated_area_km2": 3.80,
+        "estimated_area_km2": 3.8,
         "hazard_classification": "RED_CATEGORY"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [73.0850, 22.4180],
-            [73.1040, 22.4190],
-            [73.1050, 22.4040],
-            [73.0870, 22.4030],
-            [73.0850, 22.4180]
+            [
+              73.085,
+              22.418
+            ],
+            [
+              73.104,
+              22.419
+            ],
+            [
+              73.105,
+              22.404
+            ],
+            [
+              73.087,
+              22.403
+            ],
+            [
+              73.085,
+              22.418
+            ]
           ]
         ]
       }
@@ -30,18 +45,33 @@
         "id": "IND-002",
         "name": "Gujarat Refinery (IOCL) & Petrochemical Complex",
         "category": "Refining & Bulk Petrochemicals",
-        "estimated_area_km2": 7.50,
+        "estimated_area_km2": 7.5,
         "hazard_classification": "RED_CATEGORY"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [73.1100, 22.3900],
-            [73.1350, 22.3920],
-            [73.1380, 22.3680],
-            [73.1120, 22.3660],
-            [73.1100, 22.3900]
+            [
+              73.11,
+              22.39
+            ],
+            [
+              73.135,
+              22.392
+            ],
+            [
+              73.138,
+              22.368
+            ],
+            [
+              73.112,
+              22.366
+            ],
+            [
+              73.11,
+              22.39
+            ]
           ]
         ]
       }
@@ -52,18 +82,33 @@
         "id": "IND-003",
         "name": "GSFC Fertilizer Industrial Estate",
         "category": "Agrochemicals & Industrial Fertilizers",
-        "estimated_area_km2": 4.20,
+        "estimated_area_km2": 4.2,
         "hazard_classification": "RED_CATEGORY"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [73.1450, 22.3750],
-            [73.1700, 22.3760],
-            [73.1720, 22.3550],
-            [73.1480, 22.3530],
-            [73.1450, 22.3750]
+            [
+              73.145,
+              22.375
+            ],
+            [
+              73.17,
+              22.376
+            ],
+            [
+              73.172,
+              22.355
+            ],
+            [
+              73.148,
+              22.353
+            ],
+            [
+              73.145,
+              22.375
+            ]
           ]
         ]
       }
@@ -74,18 +119,33 @@
         "id": "IND-004",
         "name": "Surat Pandesara & Sachin GIDC Textile Estate",
         "category": "Textile Dyeing, Printing & Processing",
-        "estimated_area_km2": 6.80,
+        "estimated_area_km2": 6.8,
         "hazard_classification": "RED_CATEGORY"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [72.8100, 21.1550],
-            [72.8450, 21.1580],
-            [72.8500, 21.1300],
-            [72.8150, 21.1280],
-            [72.8100, 21.1550]
+            [
+              72.81,
+              21.155
+            ],
+            [
+              72.845,
+              21.158
+            ],
+            [
+              72.85,
+              21.13
+            ],
+            [
+              72.815,
+              21.128
+            ],
+            [
+              72.81,
+              21.155
+            ]
           ]
         ]
       }
@@ -96,18 +156,222 @@
         "id": "IND-005",
         "name": "Anand GIDC Food & Dairy Agro Park",
         "category": "Agro-Processing & Dairy Manufacturing",
-        "estimated_area_km2": 2.90,
+        "estimated_area_km2": 2.9,
         "hazard_classification": "ORANGE_CATEGORY"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [72.9600, 22.5400],
-            [72.9850, 22.5420],
-            [72.9880, 22.5200],
-            [72.9620, 22.5180],
-            [72.9600, 22.5400]
+            [
+              72.96,
+              22.54
+            ],
+            [
+              72.985,
+              22.542
+            ],
+            [
+              72.988,
+              22.52
+            ],
+            [
+              72.962,
+              22.518
+            ],
+            [
+              72.96,
+              22.54
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "IND-006",
+        "name": "Vatva GIDC Industrial Estate (Ahmedabad)",
+        "zone_type": "Chemical, Dyeing & Engineering GIDC",
+        "sq_km_area": 5.8,
+        "air_pollution_zone": "HIGH"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              72.62,
+              22.985
+            ],
+            [
+              72.645,
+              22.985
+            ],
+            [
+              72.65,
+              22.955
+            ],
+            [
+              72.625,
+              22.95
+            ],
+            [
+              72.615,
+              22.97
+            ],
+            [
+              72.62,
+              22.985
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "IND-007",
+        "name": "Naroda GIDC Chemical & Pharma Cluster (Ahmedabad)",
+        "zone_type": "Pharmaceutical & Specialty Chemical GIDC",
+        "sq_km_area": 4.2,
+        "air_pollution_zone": "HIGH"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              72.65,
+              23.085
+            ],
+            [
+              72.68,
+              23.085
+            ],
+            [
+              72.685,
+              23.06
+            ],
+            [
+              72.655,
+              23.055
+            ],
+            [
+              72.65,
+              23.085
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "IND-008",
+        "name": "Ankleshwar GIDC Chemical Hub",
+        "zone_type": "Petrochemical & Bulk Drug Estate",
+        "sq_km_area": 12.5,
+        "air_pollution_zone": "CRITICAL"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              72.99,
+              21.645
+            ],
+            [
+              73.04,
+              21.645
+            ],
+            [
+              73.045,
+              21.615
+            ],
+            [
+              72.995,
+              21.61
+            ],
+            [
+              72.99,
+              21.645
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "IND-009",
+        "name": "Vapi GIDC Industrial Area",
+        "zone_type": "Chemical & Dyes Industrial Complex",
+        "sq_km_area": 11.2,
+        "air_pollution_zone": "CRITICAL"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              72.89,
+              20.395
+            ],
+            [
+              72.93,
+              20.395
+            ],
+            [
+              72.935,
+              20.355
+            ],
+            [
+              72.895,
+              20.35
+            ],
+            [
+              72.89,
+              20.395
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "IND-010",
+        "name": "Thane-Belapur MIDC Chemical Belt (Navi Mumbai)",
+        "zone_type": "Specialty Chemical & Engineering MIDC",
+        "sq_km_area": 14.8,
+        "air_pollution_zone": "HIGH"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              72.99,
+              19.195
+            ],
+            [
+              73.025,
+              19.195
+            ],
+            [
+              73.03,
+              19.12
+            ],
+            [
+              73.0,
+              19.115
+            ],
+            [
+              72.99,
+              19.195
+            ]
           ]
         ]
       }

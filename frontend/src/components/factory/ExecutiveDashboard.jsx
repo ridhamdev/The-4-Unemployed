@@ -85,19 +85,30 @@ export default function ExecutiveDashboard({ analysisResult, factoryData }) {
           <div className="card" style={{ padding: '1.5rem', borderLeft: `4px solid ${riskLevel === 'HIGH' ? '#ef4444' : riskLevel === 'MEDIUM' ? '#f59e0b' : '#10b981'}` }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.25rem' }}>
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.35rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.35rem', flexWrap: 'wrap' }}>
                   <span className={`badge ${riskLevel === 'HIGH' ? 'badge-high' : riskLevel === 'MEDIUM' ? 'badge-medium' : 'badge-low'}`}>
                     {riskLevel} RISK ({riskScore} / 100)
+                  </span>
+                  <span className="badge" style={{ 
+                    background: analysisResult.is_demo ? 'rgba(245, 158, 11, 0.15)' : 'rgba(16, 185, 129, 0.15)', 
+                    color: analysisResult.is_demo ? '#f59e0b' : '#10b981', 
+                    border: `1px solid ${analysisResult.is_demo ? 'rgba(245, 158, 11, 0.35)' : 'rgba(16, 185, 129, 0.35)'}`, 
+                    fontSize: '0.7rem' 
+                  }}>
+                    {analysisResult.is_demo ? 'DEMO SCENARIO' : 'VERIFIED INDUSTRIAL PROFILE'}
                   </span>
                   <span className="badge" style={{ background: 'rgba(6, 182, 212, 0.15)', color: '#67e8f9', border: '1px solid rgba(6, 182, 212, 0.3)', fontSize: '0.7rem' }}>
                     Data Quality: {health.data_quality || 'HIGH'}
                   </span>
                 </div>
                 <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', margin: 0 }}>
-                  {analysisResult.factory_name || 'Industrial Facility'} — Environmental Health Overview
+                  {analysisResult.factory_name || factoryData.name || 'Industrial Facility'} — Environmental Health Overview
                 </h2>
                 <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: 4 }}>
-                  Analysis ID: <span style={{ color: 'var(--accent-cyan)', fontFamily: 'var(--font-mono)' }}>{analysisResult.analysis_id}</span> • Sector: {factoryData.industry_type}
+                  Factory ID: <span style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)', fontWeight: 700 }}>{analysisResult.factory_code || factoryData.factory_id || 'FAC-00001'}</span>
+                  {' '}• Analysis ID: <span style={{ color: 'var(--accent-cyan)', fontFamily: 'var(--font-mono)' }}>{analysisResult.analysis_id}</span>
+                  {' '}• Location: <strong style={{ color: '#fff' }}>{factoryData.city || 'Vadodara'}, {factoryData.state || 'Gujarat'}</strong>
+                  {' '}• Sector: {factoryData.industry_type}
                 </div>
               </div>
             </div>

@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from typing import Dict, Any, Optional
 
 from backend.database.database import get_db
-from backend.models.db_models import Factory, EnvironmentalData, GeospatialData, AnalysisResult, Recommendation
+from backend.models.db_models import Factory, EnvironmentalData, GeospatialData, AnalysisResult, Recommendation, ReportRecord
 from backend.services.environmental_service import environmental_service
 from backend.services.satellite_service import satellite_service
 from backend.services.pipeline_service import pipeline_service
@@ -39,14 +39,17 @@ def run_factory_analysis(
 
     # Scenario A: Existing factory_id passed
     if factory_id:
-        db_factory = db.query(Factory).filter(Factory.id == factory_id).first()
+        from backend.api.routes_factory import find_factory_by_id_or_code
+        db_factory = find_factory_by_id_or_code(str(factory_id), db)
         if not db_factory:
-            raise HTTPException(status_code=404, detail="Factory ID not found")
+            raise HTTPException(status_code=404, detail=f"Factory ID '{factory_id}' not found")
         target_factory_id = db_factory.id
 
         factory_dict = {
             "name": db_factory.name,
             "industry_type": db_factory.industry_type,
+            "state": db_factory.state,
+            "city": db_factory.city,
             "location_name": db_factory.location_name,
             "latitude": db_factory.latitude,
             "longitude": db_factory.longitude,
@@ -92,31 +95,42 @@ def run_factory_analysis(
     # Scenario B: Factory attributes passed directly in body
     elif "name" in raw_payload or "latitude" in raw_payload or "factory" in raw_payload or "factory_name" in raw_payload:
         sub_factory = raw_payload.get("factory", {}) if isinstance(raw_payload.get("factory"), dict) else {}
+        from backend.api.routes_factory import generate_next_factory_id
+        is_demo = bool(raw_payload.get("is_demo", False) or sub_factory.get("is_demo", False))
+        fac_code = raw_payload.get("factory_id") or sub_factory.get("factory_id") or generate_next_factory_id(db, is_demo=is_demo)
+
         factory_dict = {
             "name": raw_payload.get("name") or sub_factory.get("name") or raw_payload.get("factory_name", "Industrial Facility"),
             "industry_type": raw_payload.get("industry_type") or sub_factory.get("industry_type", "Chemical"),
+            "state": raw_payload.get("state") or sub_factory.get("state", "Gujarat"),
+            "city": raw_payload.get("city") or sub_factory.get("city", "Vadodara"),
             "location_name": raw_payload.get("location_name") or sub_factory.get("location_name", "Industrial Zone"),
             "latitude": float(raw_payload.get("latitude") or sub_factory.get("latitude", 22.4125)),
             "longitude": float(raw_payload.get("longitude") or sub_factory.get("longitude", 73.0944)),
             "analysis_radius_km": float(raw_payload.get("analysis_radius_km") or sub_factory.get("analysis_radius_km", 5.0)),
             "operating_hours_per_day": float(raw_payload.get("operating_hours_per_day") or sub_factory.get("operating_hours_per_day", 24.0)),
-            "operating_days_per_month": float(raw_payload.get("operating_days_per_month") or sub_factory.get("operating_days_per_month", 26.0))
+            "operating_days_per_month": float(raw_payload.get("operating_days_per_month") or sub_factory.get("operating_days_per_month", 26.0)),
+            "is_demo": is_demo
         }
-        energy_dict = raw_payload.get("energy", {}) or {}
-        production_dict = raw_payload.get("production", {}) or {}
-        waste_dict = raw_payload.get("waste", {}) or {}
-        processes_list = raw_payload.get("processes", []) or []
+        energy_dict = raw_payload.get("energy", {}) or sub_factory.get("energy", {}) or {}
+        production_dict = raw_payload.get("production", {}) or sub_factory.get("production", {}) or {}
+        waste_dict = raw_payload.get("waste", {}) or sub_factory.get("waste", {}) or {}
+        processes_list = raw_payload.get("processes", []) or sub_factory.get("processes", []) or []
 
         # Create new factory row
         db_factory = Factory(
+            factory_id=fac_code,
             name=factory_dict["name"],
             industry_type=factory_dict["industry_type"],
+            state=factory_dict["state"],
+            city=factory_dict["city"],
             location_name=factory_dict["location_name"],
             latitude=factory_dict["latitude"],
             longitude=factory_dict["longitude"],
             analysis_radius_km=factory_dict["analysis_radius_km"],
             operating_hours_per_day=factory_dict["operating_hours_per_day"],
-            operating_days_per_month=factory_dict["operating_days_per_month"]
+            operating_days_per_month=factory_dict["operating_days_per_month"],
+            is_demo=is_demo
         )
         db.add(db_factory)
         db.flush()
@@ -278,14 +292,32 @@ def run_factory_analysis(
         },
         ml_prediction=ml_pred
     )
-    # Cache generated report
+    # Cache generated report & persist in database
     REPORT_STORE[dynamic_rep["analysis_id"]] = dynamic_rep
+
+    try:
+        report_record = ReportRecord(
+            id=dynamic_rep["analysis_id"],
+            factory_id=target_factory_id,
+            analysis_id=analysis_record.id,
+            report_markdown=dynamic_rep.get("report_markdown", ""),
+            provenance_json=dynamic_rep.get("provenance_records", []),
+            summary_metrics_json=dynamic_rep.get("summary_metrics", {})
+        )
+        db.add(report_record)
+        db.commit()
+    except Exception as e:
+        db.rollback()
 
     return {
         "analysis_id": dynamic_rep["analysis_id"],
         "db_analysis_id": analysis_record.id,
         "factory_id": target_factory_id,
+        "factory_code": getattr(db_factory, "factory_id", f"FAC-{target_factory_id:05d}"),
         "factory_name": factory_dict.get("name", "Factory"),
+        "state": factory_dict.get("state", "Gujarat"),
+        "city": factory_dict.get("city", "Vadodara"),
+        "is_demo": getattr(db_factory, "is_demo", False),
         "total_co2e_tonnes": decision_res["factory_health"]["estimated_monthly_co2e_tonnes"],
         "scope1_direct_co2e_tonnes": analysis["scope1_direct_co2e_tonnes"],
         "scope2_indirect_co2e_tonnes": analysis["scope2_indirect_co2e_tonnes"],
@@ -368,3 +400,45 @@ def get_recommendations_for_factory(factory_id: int, db: Session = Depends(get_d
             "reason": r.reason
         } for r in recs]
     }
+
+@router.post("/factories/{identifier}/analyze")
+def trigger_analysis_for_factory(identifier: str, db: Session = Depends(get_db)):
+    """Runs complete analysis pipeline directly on a factory record stored in SQLite app.db."""
+    from backend.api.routes_factory import find_factory_by_id_or_code
+    factory = find_factory_by_id_or_code(identifier, db)
+    if not factory:
+        raise HTTPException(status_code=404, detail=f"Factory '{identifier}' not found in database.")
+    return run_factory_analysis({"factory_id": factory.id}, db=db)
+
+@router.get("/factories/{identifier}/analysis")
+def get_factory_latest_analysis(identifier: str, db: Session = Depends(get_db)):
+    """Retrieves latest analysis record for specified factory."""
+    from backend.api.routes_factory import find_factory_by_id_or_code
+    factory = find_factory_by_id_or_code(identifier, db)
+    if not factory:
+        raise HTTPException(status_code=404, detail=f"Factory '{identifier}' not found in database.")
+    latest = db.query(AnalysisResult).filter(AnalysisResult.factory_id == factory.id).order_by(AnalysisResult.created_at.desc()).first()
+    if not latest:
+        raise HTTPException(status_code=404, detail="No analysis found for this factory.")
+    return get_analysis_by_id(latest.id, db=db)
+
+@router.get("/factories/{identifier}/report")
+def get_factory_latest_report(identifier: str, db: Session = Depends(get_db)):
+    """Retrieves saved dynamic scientific report for specified factory."""
+    from backend.api.routes_factory import find_factory_by_id_or_code
+    factory = find_factory_by_id_or_code(identifier, db)
+    if not factory:
+        raise HTTPException(status_code=404, detail=f"Factory '{identifier}' not found in database.")
+    rep = db.query(ReportRecord).filter(ReportRecord.factory_id == factory.id).order_by(ReportRecord.created_at.desc()).first()
+    if not rep:
+        raise HTTPException(status_code=404, detail="No report found for this factory.")
+    return {
+        "analysis_id": rep.id,
+        "factory_id": factory.factory_id,
+        "factory_name": factory.name,
+        "report_markdown": rep.report_markdown,
+        "provenance_records": rep.provenance_json,
+        "summary_metrics": rep.summary_metrics_json,
+        "created_at": rep.created_at.isoformat() if rep.created_at else ""
+    }
+

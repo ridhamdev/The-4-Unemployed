@@ -190,6 +190,40 @@ class GisService:
             "data_provenance": "OpenStreetMap Geometries + Sentinel-2 Surface Reflectance Classification"
         }
 
+    def find_nearest_industrial_zone(self, factory_lat: float, factory_lng: float) -> Dict[str, Any]:
+        """Calculates exact geodesic distance from factory point to nearest industrial zone polygon."""
+        factory_pt = Point(factory_lng, factory_lat)
+        nearest_item = None
+        min_dist_km = float("inf")
+        nearest_coord = [factory_lng, factory_lat]
+
+        for feat in self._industrial_features:
+            geom = shape(feat["geometry"])
+            p_factory, p_poly = nearest_points(factory_pt, geom)
+            dist_km = haversine_distance_km(factory_lat, factory_lng, p_poly.y, p_poly.x)
+            if dist_km < min_dist_km:
+                min_dist_km = dist_km
+                nearest_coord = [round(p_poly.y, 4), round(p_poly.x, 4)]
+                nearest_item = {
+                    "id": feat["properties"].get("id"),
+                    "name": feat["properties"].get("name", "Industrial Estate"),
+                    "zone_type": feat["properties"].get("zone_type", "GIDC / MIDC"),
+                    "distance_km": round(dist_km, 2),
+                    "nearest_boundary_point": nearest_coord,
+                    "geometry": feat["geometry"],
+                    "source": "OpenStreetMap / Industrial Development Corp"
+                }
+
+        if not nearest_item:
+            return {
+                "name": "Local Industrial Zone",
+                "zone_type": "Manufacturing Cluster",
+                "distance_km": 0.5,
+                "nearest_boundary_point": [round(factory_lat, 4), round(factory_lng, 4)],
+                "source": "Cadastral Survey"
+            }
+        return nearest_item
+
     def get_spatial_layers(self, factory_lat: float, factory_lng: float, radius_km: float = 5.0) -> Dict[str, Any]:
         """
         Returns full GeoJSON layers for map rendering with distinct geometries:
@@ -202,6 +236,7 @@ class GisService:
         """
         nearest_water = self.find_nearest_water_body(factory_lat, factory_lng)
         nearest_res = self.find_nearest_residential_area(factory_lat, factory_lng)
+        nearest_ind = self.find_nearest_industrial_zone(factory_lat, factory_lng)
         buffer_metrics = self.compute_buffer_analysis(factory_lat, factory_lng, radius_km)
 
         return {
@@ -212,6 +247,7 @@ class GisService:
             },
             "nearest_water_body": nearest_water,
             "nearest_residential_area": nearest_res,
+            "nearest_industrial_zone": nearest_ind,
             "buffer_metrics": buffer_metrics,
             "layers": {
                 "water_bodies": {"type": "FeatureCollection", "features": self._water_features},

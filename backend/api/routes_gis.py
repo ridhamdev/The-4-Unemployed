@@ -59,3 +59,15 @@ def get_buffer_analysis(
         return gis_service.compute_buffer_analysis(latitude, longitude, radius_km)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/nearest-industrial")
+def get_nearest_industrial_zone(
+    latitude: float = Query(22.4125),
+    longitude: float = Query(73.0944)
+):
+    """Returns nearest industrial zone polygon and distance."""
+    try:
+        return gis_service.find_nearest_industrial_zone(latitude, longitude)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+

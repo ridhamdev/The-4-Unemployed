@@ -11,39 +11,15 @@ import {
   TrendingDown,
   Building2,
   Droplets,
-  Zap
+  Zap,
+  FileText,
+  Compass
 } from 'lucide-react';
 
-export default function LandingPage({ onStartAnalysis, onLoadScenario }) {
-  const scenarios = [
-    {
-      key: 'textile_surat',
-      name: 'Textile Dyeing & Finishing Mills',
-      cluster: 'Pandesara GIDC, Surat',
-      icon: '🧵',
-      highlight: 'Solid fuel boiler, stenters, Tapi River proximity',
-      color: '#06b6d4'
-    },
-    {
-      key: 'food_anand',
-      name: 'Dairy & Agro-Food Processing',
-      cluster: 'Anand Agro-Industrial Corridor',
-      icon: '🥛',
-      highlight: 'Refrigeration, spray dryer, high-COD biogas capture',
-      color: '#10b981'
-    },
-    {
-      key: 'chemical_nandesari',
-      name: 'Chemical & Specialty Polymers',
-      cluster: 'Nandesari GIDC, Vadodara',
-      icon: '🧪',
-      highlight: 'Solvent distillation, thermic heater, Mini River basin',
-      color: '#8b5cf6'
-    }
-  ];
-
+export default function LandingPage({ onStartAnalysis, onOpenDemoModal }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', paddingBottom: '3rem' }}>
+      
       {/* Hero Section */}
       <div className="card" style={{
         padding: '3rem 2.5rem',
@@ -71,7 +47,7 @@ export default function LandingPage({ onStartAnalysis, onLoadScenario }) {
             lineHeight: 1.18,
             marginBottom: '1rem'
           }}>
-            Industrial Environmental Intelligence
+            Industrial Environmental Intelligence & Circular Economy Platform
           </h1>
 
           <p style={{
@@ -81,116 +57,137 @@ export default function LandingPage({ onStartAnalysis, onLoadScenario }) {
             marginBottom: '2rem',
             maxWidth: 780
           }}>
-            Understand your factory's environmental risks, spatial airshed vulnerabilities, and discover practical circular engineering alternatives to cut fuel costs, recover waste, and protect surrounding communities.
+            Pinpoint your factory location on the interactive GIS map, configure your equipment and energy inputs, and generate an executive environmental health diagnostic with practical circular engineering alternatives to cut fuel costs, recover waste, and ensure compliance.
           </p>
 
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+            {/* Primary Action: Analyze My Factory */}
             <button
+              type="button"
               className="btn btn-primary"
-              style={{ padding: '0.85rem 1.6rem', fontSize: '0.95rem' }}
+              style={{ padding: '0.9rem 1.8rem', fontSize: '1rem', fontWeight: 700 }}
               onClick={onStartAnalysis}
             >
-              <span>Analyze My Factory</span>
+              <Compass size={18} />
+              <span>Select Location & Analyze My Factory</span>
               <ArrowRight size={18} />
             </button>
 
-            <span style={{ fontSize: '0.82rem', color: 'var(--text-dim)' }}>
-              or load a pre-configured scenario:
-            </span>
+            {/* Secondary Action: Explore Demo Factories */}
+            <button
+              type="button"
+              className="btn btn-secondary"
+              style={{ padding: '0.9rem 1.4rem', fontSize: '0.95rem' }}
+              onClick={onOpenDemoModal}
+            >
+              <Sparkles size={16} color="var(--accent-cyan)" />
+              <span>Explore Demo Factories</span>
+            </button>
           </div>
         </div>
       </div>
 
-      {/* 3 Scenario Quick-Load Cards */}
+      {/* Core Workflow Stages Grid */}
       <div>
-        <div style={{ marginBottom: '1rem' }}>
-          <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fff', margin: 0 }}>
-            Explore Realistic Industrial Case Studies
+        <div style={{ marginBottom: '1.25rem' }}>
+          <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#fff', margin: 0 }}>
+            How the Factory Decision Platform Works
           </h3>
           <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', margin: '0.2rem 0 0 0' }}>
-            Each scenario demonstrates distinct operational profiles, real vector GIS distances, and tailored circular solutions.
+            A structured, 4-stage executive workflow from geographic selection to dynamic scientific reporting.
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
-          {scenarios.map(sc => (
-            <div 
-              key={sc.key}
-              className="card"
-              style={{
-                padding: '1.5rem',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-                borderTop: `4px solid ${sc.color}`
-              }}
-              onClick={() => onLoadScenario(sc.key)}
-            >
-              <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{sc.icon}</div>
-              <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#fff', margin: '0 0 0.25rem 0' }}>
-                {sc.name}
-              </h4>
-              <div style={{ fontSize: '0.78rem', color: 'var(--text-dim)', marginBottom: '0.75rem' }}>
-                📍 {sc.cluster}
-              </div>
-              <p style={{ fontSize: '0.82rem', color: 'var(--text-main)', lineHeight: 1.45, margin: '0 0 1rem 0' }}>
-                {sc.highlight}
-              </p>
-              <button 
-                className="btn btn-secondary btn-sm"
-                style={{ width: '100%', borderColor: sc.color, color: sc.color }}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onLoadScenario(sc.key);
-                }}
-              >
-                Load This Scenario →
-              </button>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.25rem' }}>
+          
+          <div className="card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <div style={{ width: 40, height: 40, borderRadius: 8, background: 'rgba(6, 182, 212, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <MapPin size={22} color="var(--accent-cyan)" />
             </div>
-          ))}
+            <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 800, color: '#fff' }}>
+              1. Hierarchical Map Selection
+            </h4>
+            <p style={{ margin: 0, fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
+              Select State &rarr; Select City &rarr; Interactive map pans and loads real vector GIS layers. Click or drag to set your exact factory coordinates.
+            </p>
+          </div>
+
+          <div className="card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <div style={{ width: 40, height: 40, borderRadius: 8, background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Building2 size={22} color="var(--primary)" />
+            </div>
+            <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 800, color: '#fff' }}>
+              2. User-Controlled Factory Profile
+            </h4>
+            <p style={{ margin: 0, fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
+              Enter your exact organization name, energy consumption (gas, electricity, diesel), production units, and waste streams to create a real database record.
+            </p>
+          </div>
+
+          <div className="card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <div style={{ width: 40, height: 40, borderRadius: 8, background: 'rgba(139, 92, 246, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <TrendingDown size={22} color="var(--accent-purple)" />
+            </div>
+            <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 800, color: '#fff' }}>
+              3. Vector GIS & Deployed ML
+            </h4>
+            <p style={{ margin: 0, fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
+              Computes exact geodesic point-to-polygon distances to the nearest water bodies and residential zones, combining with sub-10ms deployed model inference.
+            </p>
+          </div>
+
+          <div className="card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <div style={{ width: 40, height: 40, borderRadius: 8, background: 'rgba(245, 158, 11, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <FileText size={22} color="#f59e0b" />
+            </div>
+            <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 800, color: '#fff' }}>
+              4. Dynamic Scientific Report
+            </h4>
+            <p style={{ margin: 0, fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
+              Generates a 100% factory-specific scientific report with unique analysis ID, complete data provenance table, ROI calculations, and zero static boilerplate.
+            </p>
+          </div>
+
         </div>
       </div>
 
-      {/* 7 Core Executive Questions Addressed */}
-      <div className="card" style={{ padding: '2rem' }}>
-        <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#fff', marginBottom: '1.25rem' }}>
-          Answering the 7 Critical Questions for Industrial Decision Makers
-        </h3>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
-          {[
-            { num: "1", q: "WHAT IS THE PROBLEM?", a: "Identifies top 3–5 high-emission fuel, process, and waste points." },
-            { num: "2", q: "HOW SERIOUS IS IT?", a: "Quantifies severity (High / Med / Low) against regulatory baselines." },
-            { num: "3", q: "WHERE IS THE PROBLEM?", a: "Pinpoints exact equipment (boilers, heaters, distillation, ETP)." },
-            { num: "4", q: "WHAT IS CONTRIBUTING?", a: "Links operational rates, fuel intensity, and meteorological stagnation." },
-            { num: "5", q: "WHAT SHOULD WE DO?", a: "Recommends proven circular solutions (WHR economizers, biogas, ZLD)." },
-            { num: "6", q: "WHAT COULD IT COST?", a: "Estimates CapEx, engineering difficulty, and ROI payback periods." },
-            { num: "7", q: "WHAT IS THE BENEFIT?", a: "Calculates precise CO₂e reduction and recovered energy value." }
-          ].map(item => (
-            <div key={item.num} style={{ background: '#090d16', padding: '1rem', borderRadius: 8, border: '1px solid rgba(255,255,255,0.06)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem' }}>
-                <span style={{ 
-                  width: 22, 
-                  height: 22, 
-                  borderRadius: '50%', 
-                  background: 'var(--primary)', 
-                  color: '#fff', 
-                  fontSize: '0.72rem', 
-                  fontWeight: 800, 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center' 
-                }}>
-                  {item.num}
-                </span>
-                <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#fff' }}>{item.q}</span>
-              </div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', lineHeight: 1.4 }}>
-                {item.a}
-              </div>
-            </div>
-          ))}
+      {/* Demo Section Card (Isolated) */}
+      <div className="card" style={{
+        padding: '1.75rem 2rem',
+        background: '#090d16',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+        gap: '1.25rem'
+      }}>
+        <div style={{ maxWidth: 650 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
+            <Sparkles size={18} color="var(--accent-cyan)" />
+            <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--accent-cyan)' }}>
+              Evaluation & Judge Demonstration
+            </span>
+          </div>
+          <h3 style={{ margin: 0, fontSize: '1.2rem', fontWeight: 800, color: '#fff' }}>
+            Want to test pre-loaded industrial scenarios?
+          </h3>
+          <p style={{ margin: '0.35rem 0 0 0', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
+            Explore 3 verified industrial case studies: <b>Surat Textile Dyeing Mills</b> (Tapi River), <b>Anand Dairy Processing</b> (Mahi Canal), and <b>Vadodara Petrochemical & Polymers</b> (Mini River). Demo factories are completely isolated from your real factory database.
+          </p>
         </div>
+
+        <button
+          type="button"
+          className="btn btn-secondary"
+          onClick={onOpenDemoModal}
+          style={{ padding: '0.75rem 1.4rem' }}
+        >
+          <span>Open Demo Scenarios</span>
+          <ArrowRight size={16} />
+        </button>
       </div>
+
     </div>
   );
 }

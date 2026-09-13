@@ -137,8 +137,71 @@ export async function extractEarthEngine(payload) {
 }
 
 // -------------------------------------------------------------
-// FACTORY PLATFORM ENDPOINTS (Section 3 & 4)
 // -------------------------------------------------------------
+// FACTORY PLATFORM & GEOGRAPHIC ONBOARDING ENDPOINTS (Section 3 & 4)
+// -------------------------------------------------------------
+export async function fetchStates() {
+  const res = await fetch(`${API_BASE}/geo/states`);
+  if (!res.ok) throw new Error('Failed to fetch states list');
+  return res.json();
+}
+
+export async function fetchCities(state) {
+  const res = await fetch(`${API_BASE}/geo/cities?state=${encodeURIComponent(state)}`);
+  if (!res.ok) throw new Error(`Failed to fetch cities for ${state}`);
+  return res.json();
+}
+
+export async function createFactoryProfile(factoryPayload) {
+  const res = await fetch(`${API_BASE}/factories`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(factoryPayload)
+  });
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.detail || 'Failed to create factory profile');
+  }
+  return res.json();
+}
+
+export async function fetchFactories(isDemo = null) {
+  let url = `${API_BASE}/factories`;
+  if (isDemo !== null) url += `?is_demo=${isDemo}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error('Failed to fetch factories');
+  return res.json();
+}
+
+export async function fetchFactoryById(identifier) {
+  const res = await fetch(`${API_BASE}/factories/${identifier}`);
+  if (!res.ok) throw new Error(`Failed to fetch factory ${identifier}`);
+  return res.json();
+}
+
+export async function analyzeFactoryById(identifier) {
+  const res = await fetch(`${API_BASE}/factories/${identifier}/analyze`, {
+    method: 'POST'
+  });
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.detail || 'Factory analysis failed');
+  }
+  return res.json();
+}
+
+export async function fetchFactoryAnalysis(identifier) {
+  const res = await fetch(`${API_BASE}/factories/${identifier}/analysis`);
+  if (!res.ok) throw new Error(`Failed to fetch analysis for factory ${identifier}`);
+  return res.json();
+}
+
+export async function fetchFactoryReport(identifier) {
+  const res = await fetch(`${API_BASE}/factories/${identifier}/report`);
+  if (!res.ok) throw new Error(`Failed to fetch report for factory ${identifier}`);
+  return res.json();
+}
+
 export async function fetchScenarios() {
   const res = await fetch(`${API_BASE}/factory/scenarios`);
   if (!res.ok) throw new Error('Failed to fetch factory scenarios');

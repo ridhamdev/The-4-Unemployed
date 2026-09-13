@@ -7,8 +7,11 @@ class Factory(Base):
     __tablename__ = "factories"
 
     id = Column(Integer, primary_key=True, index=True)
+    factory_id = Column(String(50), unique=True, index=True, nullable=False)
     name = Column(String(255), nullable=False)
     industry_type = Column(String(100), nullable=False)
+    state = Column(String(100), default="Gujarat")
+    city = Column(String(100), default="Vadodara")
     location_name = Column(String(255), nullable=False)
     latitude = Column(Float, nullable=False)
     longitude = Column(Float, nullable=False)
@@ -16,6 +19,7 @@ class Factory(Base):
     num_employees = Column(Integer, default=100)
     operating_hours_per_day = Column(Float, default=24.0)
     operating_days_per_month = Column(Float, default=26.0)
+    is_demo = Column(Boolean, default=False)
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
 
     processes = relationship("Process", back_populates="factory", cascade="all, delete-orphan")
@@ -25,6 +29,7 @@ class Factory(Base):
     environmental_data = relationship("EnvironmentalData", back_populates="factory", cascade="all, delete-orphan")
     geospatial_data = relationship("GeospatialData", back_populates="factory", cascade="all, delete-orphan")
     analyses = relationship("AnalysisResult", back_populates="factory", cascade="all, delete-orphan")
+    reports = relationship("ReportRecord", back_populates="factory", cascade="all, delete-orphan")
 
 class Process(Base):
     __tablename__ = "processes"
@@ -163,3 +168,17 @@ class DatasetRecord(Base):
     summary_json = Column(JSON, default=dict)
     file_path = Column(String(500), nullable=False)
     uploaded_at = Column(DateTime, default=datetime.datetime.utcnow)
+
+class ReportRecord(Base):
+    __tablename__ = "reports"
+
+    id = Column(String(64), primary_key=True, index=True)
+    factory_id = Column(Integer, ForeignKey("factories.id"), nullable=False)
+    analysis_id = Column(Integer, ForeignKey("analysis_results.id"), nullable=True)
+    report_markdown = Column(Text, nullable=False)
+    provenance_json = Column(JSON, default=list)
+    summary_metrics_json = Column(JSON, default=dict)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+
+    factory = relationship("Factory", back_populates="reports")
+
